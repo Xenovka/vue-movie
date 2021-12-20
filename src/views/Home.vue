@@ -4,6 +4,7 @@
     <Splide :options="splideOptions">
       <SplideSlide v-for="movie in movieData" :key="movie['id']">
         <img class="home__tm-image" :src="movie['poster']" :alt="movie['title']" />
+        <h4 class="home__tm-image--title text-center">{{ movie["title"] }}</h4>
       </SplideSlide>
     </Splide>
   </div>
@@ -45,6 +46,11 @@ export default {
   &__tm-image {
     width: 100%;
     height: 100%;
+
+    &--title {
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
   }
 }
 
