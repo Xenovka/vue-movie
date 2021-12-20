@@ -3,7 +3,7 @@
     <h1 class="home__main-title">Welcome to Vumovi</h1>
     <Splide :options="splideOptions">
       <SplideSlide v-for="movie in movieData" :key="movie['id']">
-        <img class="home__tm-image" :src="movie['image']" :alt="movie['fullTitle']" />
+        <img class="home__tm-image" :src="movie['poster']" :alt="movie['title']" />
       </SplideSlide>
     </Splide>
   </div>
@@ -17,11 +17,15 @@ export default {
   setup() {
     const store = useStore();
     const movieData = ref(null);
-    const splideOptions = { rewind: true, perPage: 3, gap: "1rem" };
+    const splideOptions = {
+      rewind: true,
+      perPage: 3,
+      gap: "1rem",
+      pagination: false
+    };
 
     store.dispatch("getMovieData").then(() => {
-      console.log(store.state.movieData);
-      movieData.value = store.state.movieData.items.slice(0, 25);
+      movieData.value = store.state.movieData;
     });
 
     return {
