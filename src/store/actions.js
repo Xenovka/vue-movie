@@ -1,22 +1,21 @@
 import axios from "axios";
 
+const ENDPOINT = process.env.VUE_APP_API_ENDPOINT;
+const APIKEY = process.env.VUE_APP_APIKEY;
+
 export default {
   async getMovieData({ commit }) {
     const data = [];
-    const getData = await axios.get(`https://imdb-api.com/en/API/Top250Movies/${process.env.VUE_APP_APIKEY}`);
+    const getData = await axios.get(`${ENDPOINT}/movie/top_rated?api_key=${APIKEY}`);
     const movies = await getData.data;
 
-    const sliceMovies = movies.items.slice(0, 25);
-
-    for (let movie of sliceMovies) {
-      const getPoster = await axios.get(`https://imdb-api.com/API/Posters/${process.env.VUE_APP_APIKEY}/${movie.id}`);
-      const poster = await getPoster.data;
+    for (let movie of movies.results) {
       data.push({
-        id: movie.id,
-        title: movie.fullTitle,
-        rating: movie.imDbRating,
-        ratingCount: movie.imDbRatingCount,
-        poster: poster.posters[0].link
+        id: movie["id"],
+        title: movie["title"],
+        rating: movie["vote_average"],
+        ratingCount: movie["vote_count"],
+        poster: `https://image.tmdb.org/t/p/w500/${movie["poster_path"]}`
       });
     }
     commit("changeMovieData", data);
