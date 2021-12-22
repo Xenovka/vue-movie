@@ -6,18 +6,37 @@ const APIKEY = process.env.VUE_APP_APIKEY;
 export default {
   async getMovieData({ commit }) {
     const data = [];
-    const getData = await axios.get(`${ENDPOINT}/movie/top_rated?api_key=${APIKEY}`);
+    const getData = await axios.get(`${ENDPOINT}/movie/popular?api_key=${APIKEY}`);
     const movies = await getData.data;
 
     for (let movie of movies.results) {
       data.push({
         id: movie["id"],
         title: movie["title"],
+        overview: movie["overview"],
         rating: movie["vote_average"],
         ratingCount: movie["vote_count"],
+        releaseDate: movie["release_date"],
         poster: `https://image.tmdb.org/t/p/w500/${movie["poster_path"]}`
       });
     }
-    commit("changeMovieData", data);
+    commit("updateMovieData", data);
+  },
+  async getTrending({ commit }) {
+    const data = [];
+    const getData = await axios.get(`${ENDPOINT}/trending/movie/day?api_key=${APIKEY}`);
+    const trending = await getData.data;
+
+    for (let movie of trending.results) {
+      data.push({
+        id: movie["id"],
+        title: movie["title"],
+        overview: movie["overview"],
+        releaseDate: movie["release_date"],
+        poster: `https://image.tmdb.org/t/p/w500/${movie["poster_path"]}`
+      });
+    }
+
+    commit("updateTrendingMovieData", data);
   }
 };

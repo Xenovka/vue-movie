@@ -1,59 +1,80 @@
 <template>
   <div class="container p-4 text-center home">
-    <h1 class="home__main-title">Welcome to Vumovi</h1>
-    <Splide :options="splideOptions">
-      <SplideSlide v-for="movie in movieData" :key="movie['id']">
-        <img class="home__tm-image" :src="movie['poster']" :alt="movie['title']" />
-      </SplideSlide>
-    </Splide>
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2 home__trd">
+        <trending-movies />
+      </div>
+      <div class="col-lg-12 home__tm">
+        <popular-movies />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import { useStore } from "vuex";
-import { ref } from "vue";
+import TrendingMovies from "../components/TrendingMovies.vue";
+import PopularMovies from "../components/PopularMovies.vue";
 
 export default {
-  setup() {
-    const store = useStore();
-    const movieData = ref(null);
-    const splideOptions = {
-      rewind: true,
-      perPage: 3,
-      gap: "1rem",
-      pagination: false
-    };
-
-    store.dispatch("getMovieData").then(() => {
-      movieData.value = store.state.movieData;
-    });
-
-    return {
-      movieData,
-      splideOptions
-    };
+  components: {
+    TrendingMovies,
+    PopularMovies
   }
 };
 </script>
 
 <style lang="scss">
 .home {
-  &__main-title {
-    font-size: 4.4rem;
-  }
+  &__tm {
+    margin-top: 10rem !important;
 
-  &__tm-image {
-    width: 100%;
-    height: 100%;
+    &--wrapper {
+      display: block;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    &--image {
+      width: 100%;
+      height: 100%;
+    }
 
     &--title {
+      padding: 1rem;
       font-size: 1.4rem;
-      font-weight: 600;
+      color: #fff;
+    }
+  }
+
+  &__trd {
+    &--wrapper {
+      display: block;
+      height: 100%;
+      width: 100%;
+    }
+
+    &--image {
+      width: 100%;
+      height: 100%;
     }
   }
 }
 
 .splide__arrow {
   font-size: 3rem;
+  border-radius: 6px !important;
+  top: 40% !important;
+
+  &--next {
+    right: 0 !important;
+  }
+
+  &--prev {
+    left: 0 !important;
+  }
+}
+
+.splide__slide {
+  height: 50rem;
 }
 </style>
