@@ -1,9 +1,12 @@
 <template>
+  <h2 class="home__pm--main-title">Popular Movies</h2>
   <Splide :options="splideOptions">
     <SplideSlide v-for="movie in movieData" :key="movie['id']">
-      <a to="" class="home__tm--wrapper">
-        <img class="home__tm--image" :src="movie['poster']" :alt="movie['title']" />
-        <h3 class="home__tm--title">{{ movie["title"] }}</h3>
+      <a to="" class="home__pm--wrapper">
+        <img class="home__pm--image" :src="movie['poster']" :alt="movie['title']" />
+        <h3 class="home__pm--title">
+          {{ movie["title"] }} <span class="home__pm--year">({{ movie["releaseYear"] }})</span>
+        </h3>
       </a>
     </SplideSlide>
   </Splide>

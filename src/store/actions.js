@@ -17,7 +17,8 @@ export default {
         rating: movie["vote_average"],
         ratingCount: movie["vote_count"],
         releaseDate: movie["release_date"],
-        poster: `https://image.tmdb.org/t/p/w500/${movie["poster_path"]}`
+        releaseYear: new Date(movie["release_date"]).getFullYear(),
+        poster: `https://image.tmdb.org/t/p/w500${movie["poster_path"]}`
       });
     }
     commit("updateMovieData", data);
@@ -33,7 +34,9 @@ export default {
         title: movie["title"],
         overview: movie["overview"],
         releaseDate: movie["release_date"],
-        poster: `https://image.tmdb.org/t/p/w500/${movie["poster_path"]}`
+        releaseYear: new Date(movie["release_date"]).getFullYear(),
+        poster: `https://image.tmdb.org/t/p/w342${movie["poster_path"]}`,
+        backdrop: `https://image.tmdb.org/t/p/w1280${movie["backdrop_path"]}`
       });
     }
 
