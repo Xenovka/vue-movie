@@ -3,7 +3,7 @@
   <Splide :options="splideOptions">
     <SplideSlide v-for="movie in movieData" :key="movie['id']">
       <a to="" class="home__pm--wrapper">
-        <img class="home__pm--image" :src="movie['poster']" :alt="movie['title']" />
+        <img class="home__pm--image" :src="movie['poster']" :alt="movie['title']" :title="movie['title']" />
         <h3 class="home__pm--title">
           {{ movie["title"] }} <span class="home__pm--year">({{ movie["releaseYear"] }})</span>
         </h3>
