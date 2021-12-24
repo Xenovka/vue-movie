@@ -79,6 +79,11 @@ export default {
       font-size: 2.6rem;
     }
 
+    &--details {
+      font-size: 1.8rem;
+      color: #fff;
+    }
+
     &--content {
       position: absolute;
       top: 10%;

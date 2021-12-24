@@ -10,6 +10,7 @@
             <h3 class="home__tm--title">
               {{ movie["title"] }} <span class="home__tm--year">({{ movie["releaseYear"] }})</span>
             </h3>
+            <p class="home__tm--details">{{ movie["releaseDate"] }} • {{ movie["genres"] }}</p>
             <h3 class="home__tm--overview-title">Overview</h3>
             <p class="home__tm--overview">{{ movie["overview"] }}</p>
           </div>
