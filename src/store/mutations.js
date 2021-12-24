@@ -4,5 +4,8 @@ export default {
   },
   updateTrendingMovieData(state, data) {
     state.trendingMovie = data;
+  },
+  updateNowPlayingMovieData(state, data) {
+    state.nowPlayingMovie = data;
   }
 };

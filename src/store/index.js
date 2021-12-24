@@ -5,7 +5,8 @@ import actions from "./actions";
 export default createStore({
   state: {
     movieData: null,
-    trendingMovie: null
+    trendingMovie: null,
+    nowPlayingMovie: null
   },
   mutations,
   actions

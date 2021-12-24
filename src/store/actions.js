@@ -1,16 +1,12 @@
-import axios from "axios";
 import moment from "moment";
 
 import getGenres from "../composable/getGenres";
-
-const ENDPOINT = process.env.VUE_APP_API_ENDPOINT;
-const APIKEY = process.env.VUE_APP_APIKEY;
+import getMovieData from "../composable/getMovieData";
 
 export default {
   async getMovieData({ commit }) {
     const data = [];
-    const getData = await axios.get(`${ENDPOINT}/movie/popular?api_key=${APIKEY}`);
-    const movies = await getData.data;
+    const movies = await getMovieData("/movie/popular");
 
     for (let movie of movies.results) {
       data.push({
@@ -18,17 +14,15 @@ export default {
         title: movie["title"],
         rating: movie["vote_average"],
         ratingCount: movie["vote_count"],
-        releaseDate: movie["release_date"],
-        releaseYear: new Date(movie["release_date"]).getFullYear(),
         poster: `https://image.tmdb.org/t/p/w500${movie["poster_path"]}`
       });
     }
+
     commit("updateMovieData", data);
   },
   async getTrending({ commit }) {
     const data = [];
-    const getData = await axios.get(`${ENDPOINT}/trending/movie/day?api_key=${APIKEY}`);
-    const trending = await getData.data;
+    const trending = await getMovieData("/trending/movie/day");
     const getGenre = await getGenres();
 
     for (let movie of trending.results) {
@@ -61,5 +55,20 @@ export default {
     }
 
     commit("updateTrendingMovieData", data);
+  },
+  async getNowPlaying({ commit }) {
+    const data = [];
+    const movies = await getMovieData("/movie/now_playing");
+
+    for (let movie of movies.results) {
+      data.push({
+        id: movie["id"],
+        title: movie["title"],
+        releaseDate: moment(movie["release_date"]).format("LL"),
+        poster: `https://image.tmdb.org/t/p/w500${movie["poster_path"]}`
+      });
+    }
+
+    commit("updateNowPlayingMovieData", data);
   }
 };
