@@ -13,7 +13,6 @@ export default {
       data.push({
         id: movie["id"],
         title: movie["title"],
-        overview: movie["overview"],
         rating: movie["vote_average"],
         ratingCount: movie["vote_count"],
         releaseDate: movie["release_date"],
@@ -29,10 +28,18 @@ export default {
     const trending = await getData.data;
 
     for (let movie of trending.results) {
+      let overview = movie["overview"].split(" ");
+
+      if (overview.length > 50) {
+        overview = overview.slice(0, 50).join(" ") + " ...";
+      } else {
+        overview = overview.join(" ");
+      }
+
       data.push({
         id: movie["id"],
         title: movie["title"],
-        overview: movie["overview"],
+        overview,
         releaseDate: movie["release_date"],
         releaseYear: new Date(movie["release_date"]).getFullYear(),
         poster: `https://image.tmdb.org/t/p/w342${movie["poster_path"]}`,
