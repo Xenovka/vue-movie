@@ -12,9 +12,9 @@
       />
     </form>
     <h2 class="movies__search--text">{{ movieInput ? `Showing Result For "${movieInput}"` : "" }}</h2>
-    <div class="row g-3" v-if="movieData">
-      <div class="col-lg-2" v-for="movie in movieData" :key="movie['id']">
-        <router-link to="" class="movies__items">
+    <div class="row g-4" v-if="movieData">
+      <div class="col-lg-2 movies__items" v-for="movie in movieData" :key="movie['id']">
+        <router-link to="">
           <img :src="movie['poster']" :alt="movie['title']" :title="movie['title']" class="movies__images" />
         </router-link>
       </div>
@@ -99,7 +99,7 @@ export default {
 
   &__images {
     width: 100%;
-    height: 70%;
+    height: 100%;
   }
 }
 </style>
