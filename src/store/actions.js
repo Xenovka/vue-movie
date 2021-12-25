@@ -70,5 +70,20 @@ export default {
     }
 
     commit("updateNowPlayingMovieData", data);
+  },
+  async searchMovie({ commit }, title) {
+    const data = [];
+    const movies = await getMovieData("/search/movie", title);
+
+    for (let movie of movies.results) {
+      data.push({
+        id: movie["id"],
+        title: movie["title"],
+        releaseDate: moment(movie["release_date"]).format("LL"),
+        poster: movie["poster_path"] ? `https://image.tmdb.org/t/p/w500${movie["poster_path"]}` : "https://goxpert.id/course/image/poster/27"
+      });
+    }
+
+    commit("updateMovieData", data);
   }
 };
