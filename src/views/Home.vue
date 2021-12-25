@@ -12,18 +12,23 @@
       </div>
     </div>
   </div>
+  <div class="container-fluid home__footer">
+    <base-footer />
+  </div>
 </template>
 
 <script>
 import TrendingMovies from "../components/TrendingMovies.vue";
 import PopularMovies from "../components/PopularMovies.vue";
 import NowPlayingMovies from "../components/NowPlayingMovie.vue";
+import BaseFooter from "../components/BaseFooter.vue";
 
 export default {
   components: {
     TrendingMovies,
     PopularMovies,
-    NowPlayingMovies
+    NowPlayingMovies,
+    BaseFooter
   }
 };
 </script>
@@ -145,6 +150,38 @@ export default {
 
   &__np {
     margin-top: 1rem !important;
+  }
+
+  &__footer {
+    height: 25rem;
+    background-color: #272727;
+    display: flex;
+    align-items: center;
+    padding: 10rem 20rem !important;
+
+    &--title {
+      color: #fff;
+      font-size: 5.6rem;
+      font-weight: 600;
+      margin-right: 10rem;
+    }
+
+    &--description {
+      font-size: 1.4rem;
+      color: #fff;
+    }
+
+    &--tmdb,
+    &--link {
+      font-size: 1.6rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: #fff;
+
+      & > a:hover {
+        color: #ddd;
+      }
+    }
   }
 }
 
