@@ -2,13 +2,13 @@
   <div class="container navbar">
     <div class="row">
       <div class="col-lg-12">
-        <h2 class="navbar__title text-center">Vumovin</h2>
+        <h2 class="navbar__title text-center">Vumovin.</h2>
       </div>
       <div class="col-lg-12 navbar__list">
-        <a class="navbar__list--item" to="">Home</a>
-        <a class="navbar__list--item" to="">Movies</a>
-        <a class="navbar__list--item" to="">Actor</a>
-        <a class="navbar__list--item" to="">Actress</a>
+        <router-link class="navbar__list--item" to="/">Home</router-link>
+        <router-link class="navbar__list--item" to="/movies">Movies</router-link>
+        <router-link class="navbar__list--item" to="/actor">Actor</router-link>
+        <router-link class="navbar__list--item" to="/actress">Actress</router-link>
       </div>
     </div>
   </div>
@@ -39,8 +39,35 @@
       color: #fff;
 
       &:hover {
+        content: "";
         cursor: pointer;
         color: #ccc;
+      }
+
+      &::after,
+      &::before {
+        content: "";
+        display: block;
+        width: 100%;
+        background-color: #fff;
+        border: 1px solid #fff;
+        transition: all 0.3s ease;
+      }
+
+      &::after {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+
+      &::before {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+
+      &:hover::after,
+      &:hover::before {
+        transform: translateX(0%);
+        opacity: 1;
       }
     }
   }

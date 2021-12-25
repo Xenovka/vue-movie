@@ -1,5 +1,5 @@
 <template>
-  <h1 class="home__footer--title">Vumovin</h1>
+  <h1 class="home__footer--title">Vumovin.</h1>
   <div class="home__footer--content">
     <p class="home__footer--description">
       Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident exercitationem minus velit fuga accusantium, similique nihil tempora ducimus
