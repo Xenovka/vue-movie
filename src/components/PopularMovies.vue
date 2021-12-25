@@ -2,11 +2,11 @@
   <h2 class="home__pm--main-title">Popular Movies</h2>
   <Splide :options="splideOptions">
     <SplideSlide v-for="movie in movieData" :key="movie['id']">
-      <a to="" class="home__pm--wrapper">
+      <router-link to="/" class="home__pm--wrapper">
         <img class="home__pm--image" :src="movie['poster']" :alt="movie['title']" :title="movie['title']" />
         <h3 class="home__pm--title">{{ movie["title"] }}</h3>
         <p class="home__pm--rating">{{ movie["rating"] }}/10 ({{ movie["ratingCount"] }} Votes)</p>
-      </a>
+      </router-link>
     </SplideSlide>
   </Splide>
 </template>

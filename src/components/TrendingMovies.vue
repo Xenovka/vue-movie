@@ -3,7 +3,7 @@
   <Splide :options="splideOptions">
     <SplideSlide v-for="movie in trendingMovie" :key="movie['id']" class="position-relative">
       <img class="home__tm--backdrop" :src="movie['backdrop']" :alt="movie['title']" />
-      <a to="" class="home__tm--wrapper">
+      <router-link to="/" class="home__tm--wrapper">
         <div class="home__tm--content">
           <img class="home__tm--image" :src="movie['poster']" :alt="movie['title']" />
           <div class="home__tm--sub-content">
@@ -15,7 +15,7 @@
             <p class="home__tm--overview">{{ movie["overview"] }}</p>
           </div>
         </div>
-      </a>
+      </router-link>
     </SplideSlide>
   </Splide>
 </template>
