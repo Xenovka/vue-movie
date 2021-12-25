@@ -1,48 +1,48 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Vumovin</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
-          </li>
-        </ul>
+  <div class="container navbar">
+    <div class="row">
+      <div class="col-lg-12">
+        <h2 class="navbar__title text-center">Vumovin</h2>
+      </div>
+      <div class="col-lg-12 navbar__list">
+        <a class="navbar__list--item" to="">Home</a>
+        <a class="navbar__list--item" to="">Movies</a>
+        <a class="navbar__list--item" to="">Actor</a>
+        <a class="navbar__list--item" to="">Actress</a>
       </div>
     </div>
-  </nav>
+  </div>
 </template>
 
 <style lang="scss" scoped>
 .navbar {
-  background-color: #242424;
-}
+  display: block;
 
-.navbar-brand {
-  font-size: 2.6rem;
-  font-weight: 600;
-  color: #fff !important;
-}
+  &__title {
+    padding: 0 calc(1.5rem * 0.5) !important;
+    font-size: 3.6rem;
+    font-weight: 600;
+    color: #fff;
+  }
 
-.nav-link {
-  font-size: 1.4rem;
-  color: #fff !important;
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &--item {
+      padding: 1rem 2rem;
+      font-size: 1.6rem;
+      font-weight: 600;
+      text-decoration: none;
+      text-transform: uppercase;
+      color: #fff;
+
+      &:hover {
+        cursor: pointer;
+        color: #ccc;
+      }
+    }
+  }
 }
 </style>
