@@ -21,7 +21,7 @@
   &__title {
     padding: 0 calc(1.5rem * 0.5) !important;
     font-size: 3.6rem;
-    font-weight: 600;
+    font-weight: 900;
     color: #fff;
   }
 
