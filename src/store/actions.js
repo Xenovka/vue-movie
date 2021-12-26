@@ -1,4 +1,5 @@
 import moment from "moment";
+import hd from "humanize-duration";
 
 import getGenres from "../composable/getGenres";
 import getMovieData from "../composable/getMovieData";
@@ -83,6 +84,58 @@ export default {
         poster: movie["poster_path"] ? `https://image.tmdb.org/t/p/w500${movie["poster_path"]}` : "https://goxpert.id/course/image/poster/27"
       });
     }
+
+    commit("updateMovieData", data);
+  },
+  async getDetails({ commit }, id) {
+    const movies = await getMovieData(`/movie/${id}`);
+    const shortDuration = hd.humanizer({
+      language: "shortEn",
+      languages: {
+        shortEn: {
+          y: () => "y",
+          mo: () => "mo",
+          w: () => "w",
+          d: () => "d",
+          h: () => "h",
+          m: () => "m",
+          s: () => "s",
+          ms: () => "ms"
+        }
+      }
+    });
+
+    let overview = movies["overview"].split(" ");
+
+    if (overview.length > 150) {
+      overview = overview.slice(0, 150).join(" ") + " ...";
+    } else {
+      overview = overview.join(" ");
+    }
+
+    const genres = movies["genres"].map((g) => g.name).join(", ");
+    const prodCompanies = movies["production_companies"].map((c) => `${c["name"]} (${c["origin_country"]})`);
+
+    const data = {
+      id: movies["id"],
+      title: movies["title"],
+      status: movies["status"],
+      releaseDate: moment(movies["release_date"]).format("L"),
+      releaseYear: new Date(movies["release_date"]).getFullYear(),
+      runtime: shortDuration(movies["runtime"] * 1000 * 60)
+        .split(",")
+        .join(" "),
+      overview: movies["overview"],
+      tagline: movies["tagline"],
+      genres,
+      budget: movies["budget"],
+      revenue: movies["revenue"],
+      backdrop: movies["backdrop_path"]
+        ? `https://image.tmdb.org/t/p/w1280${movies["backdrop_path"]}`
+        : "https://png.pngtree.com/thumb_back/fh260/back_our/20190621/ourmid/pngtree-film-scene-film-background-image_190374.jpg",
+      poster: `https://image.tmdb.org/t/p/w500${movies["poster_path"]}`,
+      prodCompanies
+    };
 
     commit("updateMovieData", data);
   }

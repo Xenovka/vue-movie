@@ -14,7 +14,7 @@
     <h2 class="movies__search--text">{{ movieInput ? `Showing Result For "${movieInput}"` : "" }}</h2>
     <div class="row g-4" v-if="movieData">
       <div class="col-lg-2 movies__items" v-for="movie in movieData" :key="movie['id']">
-        <router-link to="">
+        <router-link :to="'/movies/details/' + movie['id']">
           <img :src="movie['poster']" :alt="movie['title']" :title="movie['title']" class="movies__images" />
         </router-link>
       </div>
