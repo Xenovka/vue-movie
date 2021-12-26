@@ -7,8 +7,7 @@
       <div class="col-lg-12 navbar__list">
         <router-link class="navbar__list--item" to="/">Home</router-link>
         <router-link class="navbar__list--item" to="/movies">Movies</router-link>
-        <router-link class="navbar__list--item" to="/actor">Actor</router-link>
-        <router-link class="navbar__list--item" to="/actress">Actress</router-link>
+        <router-link class="navbar__list--item" to="/people">People</router-link>
       </div>
     </div>
   </div>
