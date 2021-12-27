@@ -2,7 +2,7 @@
   <div class="container p-4 text-center people">
     <h1 class="people__title">Popular People</h1>
     <div class="row g-4" v-if="peopleData">
-      <div class="col-lg-3 people__items" v-for="people in peopleData" :key="people['id']">
+      <div class="col-lg-3 col-md-4 col-sm-6 people__items" v-for="people in peopleData" :key="people['id']">
         <img :src="people['picture']" :alt="people['title']" :title="people['name']" class="people__images" />
         <h3 class="people__name">{{ people["name"] }}</h3>
       </div>

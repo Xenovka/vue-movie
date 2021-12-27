@@ -24,7 +24,18 @@ export default {
       rewind: true,
       perPage: 6,
       gap: "1rem",
-      pagination: false
+      pagination: false,
+      breakpoints: {
+        900: {
+          perPage: 5
+        },
+        800: {
+          perPage: 4
+        },
+        540: {
+          perPage: 2
+        }
+      }
     };
 
     store.dispatch("getMovieData").then(() => {

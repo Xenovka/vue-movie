@@ -118,4 +118,85 @@ export default {
     border-radius: 6px;
   }
 }
+
+@media only screen and (max-width: 1000px) {
+  .details {
+    &__title {
+      font-size: 2.8rem;
+    }
+
+    &__info {
+      font-size: 1.4rem;
+    }
+
+    &__image {
+      width: 230px;
+      height: 330px;
+    }
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .details {
+    &__overview {
+      font-size: 1.2rem;
+      padding-right: 0rem;
+
+      &--title {
+        font-size: 1.6rem;
+      }
+    }
+
+    &__companies {
+      font-size: 1.2rem;
+
+      &--title {
+        font-size: 1.6rem;
+      }
+    }
+
+    &__content {
+      top: 10%;
+      left: 1%;
+    }
+
+    &__sub-content {
+      padding: 0 1rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 560px) {
+  .details {
+    &__tagline {
+      font-size: 1.4rem;
+    }
+
+    &__backdrop {
+      height: 90%;
+    }
+
+    &__image {
+      width: 120px;
+      height: 150px;
+    }
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .details {
+    &__companies,
+    &__overview {
+      display: none;
+
+      &--title {
+        display: none;
+      }
+    }
+
+    &__backdrop {
+      height: 60%;
+    }
+  }
+}
 </style>

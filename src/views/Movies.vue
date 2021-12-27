@@ -13,7 +13,7 @@
     </form>
     <h2 class="movies__search--text">{{ movieInput ? `Showing Result For "${movieInput}"` : "" }}</h2>
     <div class="row g-4" v-if="movieData">
-      <div class="col-lg-2 movies__items" v-for="movie in movieData" :key="movie['id']">
+      <div class="col-lg-2 col-md-3 col-sm-4 col-6 movies__items" v-for="movie in movieData" :key="movie['id']">
         <router-link :to="'/movies/details/' + movie['id']">
           <img :src="movie['poster']" :alt="movie['title']" :title="movie['title']" class="movies__images" />
         </router-link>
@@ -100,6 +100,16 @@ export default {
   &__images {
     width: 100%;
     height: 100%;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .movies {
+    &__search {
+      &--input {
+        width: 70%;
+      }
+    }
   }
 }
 </style>

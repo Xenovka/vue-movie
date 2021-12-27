@@ -31,7 +31,8 @@ export default {
       rewind: true,
       perPage: 1,
       autoplay: true,
-      pagination: false
+      pagination: false,
+      arrows: false
     };
 
     store.dispatch("getTrending").then(() => {

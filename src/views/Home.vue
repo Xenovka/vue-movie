@@ -1,13 +1,13 @@
 <template>
   <div class="container p-4 text-center home">
     <div class="row">
-      <div class="col-lg-12 home__td">
+      <div class="col-12 home__tm">
         <trending-movies />
       </div>
-      <div class="col-lg-12 home__pm">
+      <div class="col-12 home__pm">
         <popular-movies />
       </div>
-      <div class="col-lg-12 home__np">
+      <div class="col-12 home__np">
         <now-playing-movies />
       </div>
     </div>
@@ -134,6 +134,7 @@ export default {
     &--backdrop {
       width: 100%;
       height: 100%;
+      border-radius: 6px;
       filter: brightness(0.3);
     }
 
@@ -199,5 +200,130 @@ export default {
 
 .splide__slide {
   height: 45rem;
+}
+
+@media only screen and (max-width: 1000px) {
+  .home {
+    &__tm {
+      &--sub-content {
+        padding: 0 2rem;
+      }
+      &--overview {
+        padding-right: 0rem;
+      }
+    }
+
+    &__footer {
+      padding: 0 5rem !important;
+
+      &--title {
+        margin-right: 4rem;
+      }
+    }
+  }
+
+  .container {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .home {
+    &__tm {
+      &--content {
+        left: 5%;
+      }
+
+      &--sub-content {
+        padding: 1rem;
+        padding-right: 4rem;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .home {
+    &__tm {
+      &--title {
+        font-size: 2.8rem;
+      }
+
+      &--details {
+        font-size: 1.4rem;
+      }
+
+      &--overview {
+        font-size: 1.4rem;
+      }
+    }
+
+    &__footer {
+      padding: 0 2rem !important;
+
+      &--title {
+        font-size: 3.6rem;
+        margin-right: 2rem;
+      }
+
+      &--description {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 560px) {
+  .home {
+    &__tm {
+      &--title {
+        margin-top: 1rem;
+      }
+
+      &--content {
+        top: 5%;
+        left: 5%;
+        flex-direction: column;
+      }
+
+      &--sub-content {
+        padding: 0;
+      }
+
+      &--overview {
+        font-size: 1.2rem;
+
+        &-title {
+          font-size: 1.6rem;
+        }
+      }
+
+      &--image {
+        width: 130px;
+        height: 180px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .home {
+    &__footer {
+      display: block;
+      text-align: center;
+      padding: 4rem 2rem !important;
+    }
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .home {
+    &__tm {
+      &--title {
+        font-size: 2.2rem;
+      }
+    }
+  }
 }
 </style>
