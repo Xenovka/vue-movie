@@ -114,12 +114,11 @@ export default {
     }
 
     const genres = movies["genres"].map((g) => g.name).join(", ");
-    const prodCompanies = movies["production_companies"].map((c) => `${c["name"]} (${c["origin_country"]})`);
+    const prodCompanies = movies["production_companies"].map((c) => `${c["name"]}`);
 
     const data = {
       id: movies["id"],
       title: movies["title"],
-      status: movies["status"],
       releaseDate: moment(movies["release_date"]).format("L"),
       releaseYear: new Date(movies["release_date"]).getFullYear(),
       runtime: shortDuration(movies["runtime"] * 1000 * 60)
@@ -128,8 +127,6 @@ export default {
       overview: movies["overview"],
       tagline: movies["tagline"],
       genres,
-      budget: movies["budget"],
-      revenue: movies["revenue"],
       backdrop: movies["backdrop_path"]
         ? `https://image.tmdb.org/t/p/w1280${movies["backdrop_path"]}`
         : "https://png.pngtree.com/thumb_back/fh260/back_our/20190621/ourmid/pngtree-film-scene-film-background-image_190374.jpg",
