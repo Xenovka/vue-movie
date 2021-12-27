@@ -6,7 +6,8 @@ export default createStore({
   state: {
     movieData: null,
     trendingMovie: null,
-    nowPlayingMovie: null
+    nowPlayingMovie: null,
+    peopleData: null
   },
   mutations,
   actions

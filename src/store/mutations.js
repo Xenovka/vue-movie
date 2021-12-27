@@ -7,5 +7,8 @@ export default {
   },
   updateNowPlayingMovieData(state, data) {
     state.nowPlayingMovie = data;
+  },
+  updatePeopleData(state, data) {
+    state.peopleData = data;
   }
 };

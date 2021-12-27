@@ -87,6 +87,22 @@ export default {
 
     commit("updateMovieData", data);
   },
+  async searchPeople({ commit }) {
+    const data = [];
+    const people = await getMovieData("/person/popular");
+
+    for (let p of people.results) {
+      data.push({
+        id: p["id"],
+        name: p["name"],
+        picture: p["profile_path"]
+          ? `https://image.tmdb.org/t/p/w500${p["profile_path"]}`
+          : "https://avatars.services.sap.com/images/krishan.yadav2_small.png"
+      });
+    }
+
+    commit("updatePeopleData", data);
+  },
   async getDetails({ commit }, id) {
     const movies = await getMovieData(`/movie/${id}`);
     const shortDuration = hd.humanizer({
@@ -114,7 +130,7 @@ export default {
     }
 
     const genres = movies["genres"].map((g) => g.name).join(", ");
-    const prodCompanies = movies["production_companies"].map((c) => `${c["name"]}`);
+    const prodCompanies = movies["production_companies"].map((c) => `${c["name"]}`).join(" • ");
 
     const data = {
       id: movies["id"],
