@@ -101,10 +101,6 @@ export default {
       font-size: 4rem;
     }
 
-    &--year {
-      font-size: 2.6rem;
-    }
-
     &--details {
       font-size: 1.8rem;
       color: #fff;

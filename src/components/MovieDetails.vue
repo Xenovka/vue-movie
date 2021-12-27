@@ -8,12 +8,10 @@
           <h3 class="details__title">{{ movieData["title"] }} ({{ movieData["releaseYear"] }})</h3>
           <p class="details__info">{{ movieData["releaseDate"] }} • {{ movieData["genres"] }} • {{ movieData["runtime"] }}</p>
           <h3 class="details__tagline">{{ movieData["tagline"] }}</h3>
-          <h3 class="details__overview-title">Overview</h3>
+          <h3 class="details__overview--title">Overview</h3>
           <p class="details__overview">{{ movieData["overview"] }}</p>
-          <h3 class="details__companies">Production Companies</h3>
-          <ul>
-            <li class="details__companies--list" v-for="company in movieData['prodCompanies']" :key="company">{{ company }}</li>
-          </ul>
+          <h3 class="details__companies--title">Production Companies</h3>
+          <p class="details__companies">{{ movieData["prodCompanies"] }}</p>
         </div>
       </div>
     </div>
@@ -83,22 +81,14 @@ export default {
   }
 
   &__companies {
-    margin-top: 2rem;
-    font-size: 1.8rem;
-    font-weight: 600;
+    font-size: 1.6rem;
+    font-weight: 400;
     color: #fff;
 
-    & + ul {
-      width: 80%;
-      padding-left: 0;
-      display: flex;
-      justify-content: space-between;
-    }
-
-    &--list {
-      font-size: 1.4rem;
-      font-weight: 400;
-      list-style: none;
+    &--title {
+      margin-top: 2rem;
+      font-size: 2.2rem;
+      font-weight: 600;
       color: #fff;
     }
   }
@@ -108,7 +98,7 @@ export default {
     color: #fff;
     padding-right: 15rem;
 
-    &-title {
+    &--title {
       margin-top: 2rem;
       font-size: 2.2rem;
       font-weight: 600;

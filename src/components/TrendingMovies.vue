@@ -7,9 +7,7 @@
         <div class="home__tm--content">
           <img class="home__tm--image" :src="movie['poster']" :alt="movie['title']" />
           <div class="home__tm--sub-content">
-            <h3 class="home__tm--title">
-              {{ movie["title"] }} <span class="home__tm--year">({{ movie["releaseYear"] }})</span>
-            </h3>
+            <h3 class="home__tm--title">{{ movie["title"] }} ({{ movie["releaseYear"] }})</h3>
             <p class="home__tm--details">{{ movie["releaseDate"] }} • {{ movie["genres"] }}</p>
             <h3 class="home__tm--overview-title">Overview</h3>
             <p class="home__tm--overview">{{ movie["overview"] }}</p>
