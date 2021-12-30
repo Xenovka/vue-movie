@@ -48,3 +48,9 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+.home__np {
+  margin-top: 1rem !important;
+}
+</style>

@@ -144,42 +144,6 @@ export default {
       border-radius: 6px;
     }
   }
-
-  &__np {
-    margin-top: 1rem !important;
-  }
-
-  &__footer {
-    height: 25rem;
-    background-color: #272727;
-    display: flex;
-    align-items: center;
-    padding: 10rem 20rem !important;
-
-    &--title {
-      color: #fff;
-      font-size: 5.6rem;
-      font-weight: 600;
-      margin-right: 10rem;
-    }
-
-    &--description {
-      font-size: 1.4rem;
-      color: #fff;
-    }
-
-    &--tmdb,
-    &--link {
-      font-size: 1.6rem;
-      font-weight: 600;
-      text-decoration: none;
-      color: #fff;
-
-      & > a:hover {
-        color: #ddd;
-      }
-    }
-  }
 }
 
 .splide__arrow {
@@ -210,14 +174,6 @@ export default {
       }
       &--overview {
         padding-right: 0rem;
-      }
-    }
-
-    &__footer {
-      padding: 0 5rem !important;
-
-      &--title {
-        margin-right: 4rem;
       }
     }
   }
@@ -258,19 +214,6 @@ export default {
         font-size: 1.4rem;
       }
     }
-
-    &__footer {
-      padding: 0 2rem !important;
-
-      &--title {
-        font-size: 3.6rem;
-        margin-right: 2rem;
-      }
-
-      &--description {
-        font-size: 1.2rem;
-      }
-    }
   }
 }
 
@@ -303,16 +246,6 @@ export default {
         width: 130px;
         height: 180px;
       }
-    }
-  }
-}
-
-@media only screen and (max-width: 500px) {
-  .home {
-    &__footer {
-      display: block;
-      text-align: center;
-      padding: 4rem 2rem !important;
     }
   }
 }
