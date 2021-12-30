@@ -30,6 +30,7 @@
     justify-content: center;
 
     &--item {
+      position: relative;
       padding: 1rem 2rem;
       font-size: 1.6rem;
       font-weight: 600;
@@ -46,7 +47,7 @@
       &::after,
       &::before {
         content: "";
-        display: block;
+        position: absolute;
         width: 100%;
         background-color: #fff;
         border: 1px solid #fff;
@@ -54,18 +55,22 @@
       }
 
       &::after {
-        transform: translateX(-100%);
-        opacity: 0;
+        left: 0;
+        bottom: 0;
+        transform: scaleX(0);
+        transform-origin: left;
       }
 
       &::before {
-        transform: translateX(100%);
-        opacity: 0;
+        right: 0;
+        top: 0;
+        transform: scaleX(0);
+        transform-origin: right;
       }
 
       &:hover::after,
       &:hover::before {
-        transform: translateX(0%);
+        transform: scaleX(1);
         opacity: 1;
       }
     }
